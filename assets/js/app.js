@@ -20,7 +20,7 @@ io.socket.on('Bittrex BTCUSD Ticker Update', function (updateData) {
 
 
 io.socket.on('Gemini BTCUSD Ticker Update', function (updateData) {
-    console.log(updateData);
+    console.log('Gemini:', updateData);
     $('#gemini-last-price').text(updateData.last);
     $('#gemini-bid').text(updateData.bid);
     $('#gemini-ask').text(updateData.ask);
