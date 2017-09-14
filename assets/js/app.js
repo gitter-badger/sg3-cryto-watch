@@ -27,7 +27,7 @@ io.socket.on('Gemini BTCUSD Ticker Update', function (updateData) {
 });
 
 io.socket.on('Kraken BTCUSD Ticker Update', function (updateData) {
-    console.log(updateData.result);
+    console.log('Kraken:', updateData.result);
     $('#kraken-last-price').text(updateData.result.XXBTZUSD.c[0]);
     $('#kraken-bid').text(updateData.result.XXBTZUSD.b[0]);
     $('#kraken-ask').text(updateData.result.XXBTZUSD.a[0]);
