@@ -12,7 +12,7 @@ io.socket.on('Bitfinex BTCUSD Ticker Update', function (updateData) {
 });
 
 io.socket.on('Bittrex BTCUSD Ticker Update', function (updateData) {
-    console.log(updateData);
+    console.log('Bittrex:', updateData);
     $('#bittrex-last-price').text(updateData.Last);
     $('#bittrex-bid').text(updateData.Bid);
     $('#bittrex-ask').text(updateData.Ask);
