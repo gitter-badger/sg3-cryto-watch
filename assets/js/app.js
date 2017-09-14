@@ -40,9 +40,9 @@ io.socket.on('Bitstamp BTCUSD Ticker Update', function (ticker) {
     $('#bitstamp-ask').text(ticker.best_ask);
 });
 
-io.socket.on('Poloniex BTCUSD Ticker Update', function (updateData) {
-    console.log('Poloniex:', updateData);
-    $('#poloniex-last-price').text(updateData.last);
-    $('#poloniex-bid').text(updateData.highestBid);
-    $('#poloniex-ask').text(updateData.lowestAsk);
+io.socket.on('Poloniex BTCUSD Ticker Update', function (ticker) {
+    console.log('Poloniex:', ticker);
+    $('#poloniex-last-price').text(ticker.last_price);
+    $('#poloniex-bid').text(ticker.best_bid);
+    $('#poloniex-ask').text(ticker.best_ask);
 });

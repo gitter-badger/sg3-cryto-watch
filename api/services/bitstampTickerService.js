@@ -1,15 +1,17 @@
 
-// var Pusher = require('pusher-client');
+// ****** Order Book Feed ********
+var Pusher = require('pusher-client');
 
 
-// var pusher = new Pusher('de504dc5763aeef9ff52');
-// var order_book_channel = pusher.subscribe('live_trades');
+var pusher = new Pusher('de504dc5763aeef9ff52');
+var order_book_channel = pusher.subscribe('diff_order_book');
 
-// order_book_channel.bind('trade', function(data) {
-//     sails.sockets.blast('Bitstamp BTCUSD Ticker Update', data);
-// })
+order_book_channel.bind('data', function(data) {
+    //sails.sockets.blast('Bitstamp BTCUSD Ticker Update', data);
+    console.log(data);
+})
 
-
+// ******* Last Price Feed ***** 
 var getJSON = require('get-json')
 
 var ticker = null; 
