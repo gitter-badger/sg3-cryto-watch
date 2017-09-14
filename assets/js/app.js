@@ -19,11 +19,11 @@ io.socket.on('Bittrex BTCUSD Ticker Update', function (ticker) {
 });
 
 
-io.socket.on('Gemini BTCUSD Ticker Update', function (updateData) {
-    console.log('Gemini:', updateData);
-    $('#gemini-last-price').text(updateData.last);
-    $('#gemini-bid').text(updateData.bid);
-    $('#gemini-ask').text(updateData.ask);
+io.socket.on('Gemini BTCUSD Ticker Update', function (ticker) {
+    console.log('Gemini:', ticker);
+    $('#gemini-last-price').text(ticker.last_price);
+    $('#gemini-bid').text(ticker.best_bid);
+    $('#gemini-ask').text(ticker.best_ask);
 });
 
 io.socket.on('Kraken BTCUSD Ticker Update', function (updateData) {
