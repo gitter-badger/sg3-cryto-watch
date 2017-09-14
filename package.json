@@ -35,7 +35,7 @@
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/Efra/crypto-tickers-v2.git"
+    "url": "https://github.com/efrainmunoz/sg3-cryto-watch.git"
   },
   "author": "Efra",
   "license": ""
