@@ -4,11 +4,11 @@ io.socket.on('connect', function () {
     
 });
 
-io.socket.on('Bitfinex BTCUSD Ticker Update', function (updateData) {
-    console.log('Bitfinex:', updateData);
-    $('#bitfinex-last-price').text(updateData.LAST_PRICE);
-    $('#bitfinex-bid').text(updateData.BID);
-    $('#bitfinex-ask').text(updateData.ASK);
+io.socket.on('Bitfinex BTCUSD Ticker Update', function (ticker) {
+    console.log('Bitfinex:', ticker);
+    $('#bitfinex-last-price').text(ticker.last_price);
+    $('#bitfinex-bid').text(ticker.best_bid);
+    $('#bitfinex-ask').text(ticker.best_ask);
 });
 
 io.socket.on('Bittrex BTCUSD Ticker Update', function (updateData) {
@@ -35,8 +35,9 @@ io.socket.on('Kraken BTCUSD Ticker Update', function (updateData) {
 
 io.socket.on('Bitstamp BTCUSD Ticker Update', function (updateData) {
     console.log('Bitstamp:', updateData);
-    $('#bitstamp-last-price').text(updateData.price);
-    
+    $('#bitstamp-last-price').text(updateData.last);
+    $('#bitstamp-bid').text(updateData.bid);
+    $('#bitstamp-ask').text(updateData.ask);
 });
 
 io.socket.on('Poloniex BTCUSD Ticker Update', function (updateData) {

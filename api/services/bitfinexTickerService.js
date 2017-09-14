@@ -16,7 +16,16 @@ bws.on('open', () => {
   bws.subscribeTrades('BTCUSD')
 })
 
-bws.on('ticker', (pair, ticker) => {
+var ticker = null; 
+
+bws.on('ticker', (pair, newTicker) => {
+    // new ticker
+    ticker = { 
+      last_price: newTicker.LAST_PRICE,
+      best_bid: newTicker.BID, 
+      best_ask: newTicker.ASK 
+    };
+    // bradcast the update ticker
     sails.sockets.blast('Bitfinex BTCUSD Ticker Update', ticker);
 })
 

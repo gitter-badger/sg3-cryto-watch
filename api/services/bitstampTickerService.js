@@ -1,10 +1,23 @@
 
-var Pusher = require('pusher-client');
+// var Pusher = require('pusher-client');
 
 
-var pusher = new Pusher('de504dc5763aeef9ff52');
-var order_book_channel = pusher.subscribe('live_trades');
+// var pusher = new Pusher('de504dc5763aeef9ff52');
+// var order_book_channel = pusher.subscribe('live_trades');
 
-order_book_channel.bind('trade', function(data) {
-    sails.sockets.blast('Bitstamp BTCUSD Ticker Update', data);
-})
+// order_book_channel.bind('trade', function(data) {
+//     sails.sockets.blast('Bitstamp BTCUSD Ticker Update', data);
+// })
+
+
+var getJSON = require('get-json')
+
+function intervalFunct() {
+    getJSON('https://www.bitstamp.net/api/v2/ticker/btcusd/', function(error, response){
+        sails.sockets.blast('Bitstamp BTCUSD Ticker Update', response);
+    });
+}
+
+setInterval(intervalFunct, 
+    1000
+);
