@@ -11,14 +11,12 @@ const opts = {
 const bws = new BFX(API_KEY, API_SECRET, opts).ws
 
 bws.on('open', () => {
-  console.log('bitfinex websocket connection open.');
   bws.subscribeTicker('BTCUSD')
   bws.subscribeOrderBook('BTCUSD')
   bws.subscribeTrades('BTCUSD')
 })
 
 bws.on('ticker', (pair, ticker) => {
-    console.log(ticker);
     sails.sockets.blast('Bitfinex BTCUSD Ticker Update', ticker);
 })
 
