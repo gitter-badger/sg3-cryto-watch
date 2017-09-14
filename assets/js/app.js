@@ -26,11 +26,11 @@ io.socket.on('Gemini BTCUSD Ticker Update', function (ticker) {
     $('#gemini-ask').text(ticker.best_ask);
 });
 
-io.socket.on('Kraken BTCUSD Ticker Update', function (updateData) {
-    console.log('Kraken:', updateData.result);
-    $('#kraken-last-price').text(updateData.result.XXBTZUSD.c[0]);
-    $('#kraken-bid').text(updateData.result.XXBTZUSD.b[0]);
-    $('#kraken-ask').text(updateData.result.XXBTZUSD.a[0]);
+io.socket.on('Kraken BTCUSD Ticker Update', function (ticker) {
+    console.log('Kraken:', ticker);
+    $('#kraken-last-price').text(ticker.last_price);
+    $('#kraken-bid').text(ticker.best_bid);
+    $('#kraken-ask').text(ticker.best_ask);
 });
 
 io.socket.on('Bitstamp BTCUSD Ticker Update', function (ticker) {
