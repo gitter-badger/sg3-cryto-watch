@@ -30,6 +30,10 @@ bws.on('ticker', (pair, newTicker) => {
     sails.sockets.blast('Bitfinex BTCUSD Ticker Update', ticker);
 })
 
+bws.on('orderbook', (pair, book) => {
+  console.log(book);
+})
+
 bws.on('error', console.error)
 
 module.exports = {}

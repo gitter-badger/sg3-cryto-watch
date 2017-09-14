@@ -17,3 +17,11 @@ function intervalFunct() {
 setInterval(intervalFunct, 
     1000
 );
+
+setInterval(intervalFunct1,1000);
+// Get Order Book Feed
+function intervalFunct1() {
+    getJSON('https://api.kraken.com/0/public/Depth',function(error, orderBookFeed){
+        
+    })
+}
