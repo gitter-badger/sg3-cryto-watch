@@ -12,9 +12,17 @@
 
 var getJSON = require('get-json')
 
+var ticker = null; 
+
 function intervalFunct() {
-    getJSON('https://www.bitstamp.net/api/v2/ticker/btcusd/', function(error, response){
-        sails.sockets.blast('Bitstamp BTCUSD Ticker Update', response);
+    getJSON('https://www.bitstamp.net/api/v2/ticker/btcusd/', function(error, newTicker){
+        // new ticker
+        ticker = { 
+            last_price: newTicker.last,
+            best_bid: newTicker.bid, 
+            best_ask: newTicker.ask 
+        };
+        sails.sockets.blast('Bitstamp BTCUSD Ticker Update', ticker);
     });
 }
 

@@ -33,11 +33,11 @@ io.socket.on('Kraken BTCUSD Ticker Update', function (updateData) {
     $('#kraken-ask').text(updateData.result.XXBTZUSD.a[0]);
 });
 
-io.socket.on('Bitstamp BTCUSD Ticker Update', function (updateData) {
-    console.log('Bitstamp:', updateData);
-    $('#bitstamp-last-price').text(updateData.last);
-    $('#bitstamp-bid').text(updateData.bid);
-    $('#bitstamp-ask').text(updateData.ask);
+io.socket.on('Bitstamp BTCUSD Ticker Update', function (ticker) {
+    console.log('Bitstamp:', ticker);
+    $('#bitstamp-last-price').text(ticker.last_price);
+    $('#bitstamp-bid').text(ticker.best_bid);
+    $('#bitstamp-ask').text(ticker.best_ask);
 });
 
 io.socket.on('Poloniex BTCUSD Ticker Update', function (updateData) {

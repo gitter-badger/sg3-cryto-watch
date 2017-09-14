@@ -16,6 +16,7 @@ bws.on('open', () => {
   bws.subscribeTrades('BTCUSD')
 })
 
+
 var ticker = null; 
 
 bws.on('ticker', (pair, newTicker) => {
