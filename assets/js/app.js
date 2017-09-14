@@ -11,11 +11,11 @@ io.socket.on('Bitfinex BTCUSD Ticker Update', function (ticker) {
     $('#bitfinex-ask').text(ticker.best_ask);
 });
 
-io.socket.on('Bittrex BTCUSD Ticker Update', function (updateData) {
-    console.log('Bittrex:', updateData);
-    $('#bittrex-last-price').text(updateData.Last);
-    $('#bittrex-bid').text(updateData.Bid);
-    $('#bittrex-ask').text(updateData.Ask);
+io.socket.on('Bittrex BTCUSD Ticker Update', function (ticker) {
+    console.log('Bittrex:', ticker);
+    $('#bittrex-last-price').text(ticker.last_price);
+    $('#bittrex-bid').text(ticker.best_bid);
+    $('#bittrex-ask').text(ticker.best_ask);
 });
 
 
